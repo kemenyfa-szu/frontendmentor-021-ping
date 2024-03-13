@@ -1,0 +1,218 @@
+:root {
+    /* ### Primary */
+    --blue: hsl(223, 87%, 63%);
+    --blue-light: hsl(223, 87%, 70%);
+
+    /* ### Secondary */
+    --pale-blue: hsl(223, 100%, 88%);
+    --light-red: hsl(354, 100%, 66%);
+
+    /* ### Neutral */
+    --gray: hsl(0, 0%, 59%);
+    --light-gray: hsl(0, 0%, 89%);
+    --very-dark-blue: hsl(209, 33%, 12%);
+    --input-padding-block: 0.875em;
+    --button-padding-block: 1.2em;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+html {
+    font-size: 20px;
+    font-family: 'Libre Franklin', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    padding-block: 2rem;
+}
+
+.coming-soon {
+    width: 85%;
+    max-width: 32rem;
+    margin-inline: auto;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+img.logo {
+    max-width: clamp(2.6rem, 12vw, 4.3rem);
+    margin: 2.2rem auto clamp(2rem, 5vw, 2.5rem);
+}
+
+img.illustration {
+    margin-bottom: 2rem;
+}
+
+h1 {
+    font-size: clamp(1.1rem, calc(0.5rem + 3vw), 2.4rem);
+    font-weight: 300;
+    color: var(--gray);
+    margin-bottom: 0.7em;
+}
+
+h1 strong {
+    color: var(--very-dark-blue);
+    font-weight: 700;
+}
+
+p {
+    font-size: clamp(0.6rem, calc(0.3rem + 1vw), 1rem);
+    margin-bottom: 2.65em;
+}
+
+.content-container {
+    margin-bottom: 3.4rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 1rem;
+    padding-inline: 5%;
+}
+
+form > * {
+    flex-grow: 1;
+}
+
+input {
+    width: 100%;
+    font-size: clamp(0.65rem, calc(0.4rem + 1vw),  0.875rem);
+    padding: var(--input-padding-block) 1.5rem;
+    border: 1px solid var(--light-gray);
+    border-radius: calc(2 * var(--input-padding-block));
+}
+
+input::placeholder {
+    color: var(--light-gray);
+}
+
+input:focus {
+    outline: 1px solid var(--gray);
+}
+
+input.email-error {
+    border-color: var(--light-red)
+}
+
+button[type=submit] {
+    background-color: var(--blue);
+    color: white;
+    font-size: clamp(0.58rem, calc(0.4rem + 0.7vw), 0.8rem);
+    letter-spacing: 1px;
+    font-weight: 600;
+    padding: var(--button-padding-block) 2.5em;
+    border: none;
+    border-radius: calc(2 * var(--button-padding-block));
+}
+
+.error-text {
+    display: none;
+    font-size: 0.6rem;
+    font-style: italic;
+    color: var(--light-red);
+    padding-inline: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+p.error-text.email-error {
+    display: block;
+    margin-bottom: 1em;
+}
+
+button[type=submit]:hover {
+    cursor: pointer;
+    background-color: var(--blue-light);
+}
+button[type=submit]:active {
+    background-color: var(--pale-blue);
+}
+
+form.success {
+    display: none;
+}
+
+.thank-you {
+    display: none;
+}
+
+.thank-you.success {
+    display: block;
+}
+
+ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    gap: 0.6rem;
+    margin-bottom: 1.25rem;
+}
+
+a i {
+    font-size: 0.8rem;
+    color: var(--blue);
+    width: 2em;
+    height: 2em;
+    padding: 0.5em;
+    border: 1px solid var(--pale-blue);
+    border-radius: 50%;
+}
+
+a i:hover,
+a i:active {
+    color: white;
+    background-color: var(--blue);
+}
+
+.legal {
+    font-size: 0.5rem;
+    color: var(--gray);
+    margin-bottom: 0;
+}
+
+@media screen and (min-width: 640px) {
+    h1 {
+        margin-bottom: 0.3em;
+    }
+
+    p {
+        margin-bottom: 2.2em;
+    }
+
+    form {
+        padding-inline: unset;
+        flex-direction: row;
+    }
+
+    .error-text {
+        position: absolute;
+        text-align: left;
+    }
+
+    button[type=submit] {
+        align-self: baseline;
+        max-width: 32%;
+    }
+}
+
+.attribution {
+    display: none;
+    font-size: 11px;
+    text-align: center;
+}
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
